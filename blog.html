@@ -45,19 +45,19 @@
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav">
                             <li class="active">
-                                <a href="#welcome">Home</a>
+                                <a href="/#welcome">Home</a>
                             </li>
                             <li>
-                                <a href="#About">About</a>
+                                <a href="/#About">About</a>
                             </li>
                             <li>
-                                <a href="#Skills">Skills</a>
+                                <a href="/#Skills">Skills</a>
                             </li>
                             <li>
-                                <a href="#Portfolio">Portfolio</a>
+                                <a href="/#Portfolio">Portfolio</a>
                             </li>
                             <li>
-                                <a href="#Contact">Contact</a>
+                                <a href="/#Contact">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -101,6 +101,24 @@
                 });
 
             });
+        </script>
+        <script type="text/javascript">
+          $(function() {
+            var $content = $('#content');
+            var data = {
+              rss_url: 'https://medium.com/feed/@reeddetorres'
+            };
+            $.get('https://api.rss2json.com/v1/api.json', data, function(response) {
+              if (response.status == 'ok') {
+                var output = '<h1>' + response.feed.title + '</h1>';
+                $.each(response.items, function(k, item) {
+                  output += '<h2><a href="' + item.link + '" >' + item.title + '</h2></a>';
+                  output += '<p>' + item.description + '</p>';
+                });
+                $content.html(output);
+              }
+            });
+          });
         </script>
     </body>
 
