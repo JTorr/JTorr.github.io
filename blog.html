@@ -65,7 +65,8 @@
                 </div>
             </div>
           </div>
-          <div id="content"/>
+          <h1>Blog</h1>
+          <div id="blog_posts"/>
             <!-- <div class="clearfix"></div> -->
           </div>
           <!-- /container -->
@@ -98,7 +99,8 @@
         </script>
         <script type="text/javascript">
           $(function() {
-            var $content = $('#content');
+            console.log("Calling function");
+            var $content = $('#blog_posts');
             var rss_url: 'https://medium.com/feed/@reeddetorres'
             var url = "https://api.rss2json.com/v1/api.json?rss_url=" + rss_url;
             $.get(url, function(response) {
