@@ -65,7 +65,7 @@
                 </div>
             </div>
           </div>
-          <h1>Grrr</h1>
+          <h1>WTF</h1>
           <div id="blog_posts"/>
             <!-- <div class="clearfix"></div> -->
           </div>
@@ -95,14 +95,14 @@
                     thumbnails: true,
                     imagePath: '../images/'
                 });
-                console.log("Test");
+                alert("1st function");
                 jQuery(function() {
-                  console.log("Calling function");
+                  alert("Calling function");
                   var $content = jQuery('#blog_posts');
                   var rss_url: 'https://medium.com/feed/@reeddetorres'
                   var url = "https://api.rss2json.com/v1/api.json?rss_url=" + rss_url;
                   jQuery$.get(url, function(response) {
-                    console.log(JSON.stringify(response));
+                    alert("1st function: " + JSON.stringify(response));
                     if (response.status == 'ok') {
                       var output = '<h1>' + response.feed.title + '</h1>';
                       jQuery$.each(response.items, function(k, item) {
@@ -118,12 +118,12 @@
         </script>
         <script type="text/javascript">
           jQuery(function() {
-            console.log("Calling function");
+            alert("In second function");
             var $content = jQuery('#blog_posts');
             var rss_url: 'https://medium.com/feed/@reeddetorres'
             var url = "https://api.rss2json.com/v1/api.json?rss_url=" + rss_url;
             jQuery$.get(url, function(response) {
-              console.log(JSON.stringify(response));
+              alert(JSON.stringify(response));
               if (response.status == 'ok') {
                 var output = '<h1>' + response.feed.title + '</h1>';
                 jQuery$.each(response.items, function(k, item) {
