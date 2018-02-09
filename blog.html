@@ -65,16 +65,13 @@
                 </div>
             </div>
           </div>
-          <div>
+          <div class="Parallax">
             <a href="https://medium.freecodecamp.org/how-to-become-a-web-developer-without-losing-your-mind-a5df9ba9436e">
             <figure>
               <img alt="" src="https://cdn-images-1.medium.com/max/1024/1*CfdxLFqER3D-buDMmBh5sw.jpeg" />
+              <figcaption>How To Become a Web Developer Without Losing Your Mind</figcaption>
             </figure>
-            <p><strong>Becoming a web developer is a path littered with mental traps. Step carefully on the muddy footprints of those who walked before you.</strong></p>
           </a>
-          </div>
-          <div id="blog_posts"/>
-            <!-- <div class="clearfix"></div> -->
           </div>
           <!-- /container -->
           <div id="toTop">To Top</div>
@@ -94,30 +91,12 @@
         <script src="js/jquery.localscroll-1.2.7-min.js"></script><!--  parallax-->
         <script>
             jQuery(function () {
-
-                alert("Test 1");
                 jQuery('#camera_wrap_3').camera({
                     height: '65%',
                     pagination: false,
                     thumbnails: true,
                     imagePath: '../images/'
                 });
-                  alert("Calling function");
-                  var $content = jQuery('#blog_posts');
-                  var rss_url: 'https://medium.com/feed/@reeddetorres'
-                  var url = "https://api.rss2json.com/v1/api.json?rss_url=" + rss_url;
-                  jQuery$.get(url, function(response) {
-                    alert("1st function: " + JSON.stringify(response));
-                    if (response.status == 'ok') {
-                      var output = '<h1>' + response.feed.title + '</h1>';
-                      jQuery$.each(response.items, function(k, item) {
-                        output += '<h2><a href="' + item.link + '" >' + item.title + '</h2></a>';
-                        output += '<p>' + item.description + '</p>';
-                      });
-                      $content.html(output);
-                    }
-                });
-
             });
         </script>
     </body>
