@@ -65,7 +65,7 @@
                 </div>
             </div>
           </div>
-          <h1>Blog Posts</h1>
+          <h1>Grrr</h1>
           <div id="blog_posts"/>
             <!-- <div class="clearfix"></div> -->
           </div>
@@ -88,11 +88,30 @@
         <script>
             jQuery(function () {
 
+                console.log("Test 1");
                 jQuery('#camera_wrap_3').camera({
                     height: '65%',
                     pagination: false,
                     thumbnails: true,
                     imagePath: '../images/'
+                });
+                console.log("Test");
+                jQuery(function() {
+                  console.log("Calling function");
+                  var $content = jQuery('#blog_posts');
+                  var rss_url: 'https://medium.com/feed/@reeddetorres'
+                  var url = "https://api.rss2json.com/v1/api.json?rss_url=" + rss_url;
+                  jQuery$.get(url, function(response) {
+                    console.log(JSON.stringify(response));
+                    if (response.status == 'ok') {
+                      var output = '<h1>' + response.feed.title + '</h1>';
+                      jQuery$.each(response.items, function(k, item) {
+                        output += '<h2><a href="' + item.link + '" >' + item.title + '</h2></a>';
+                        output += '<p>' + item.description + '</p>';
+                      });
+                      $content.html(output);
+                    }
+                  });
                 });
 
             });
