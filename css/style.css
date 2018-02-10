@@ -731,7 +731,7 @@ a.btn:hover ,button.btn:hover {
 
 figure {
   width: 90%;
-  margin: 5%;
+  margin: 100px 5% 0 5%;
   text-align: center;
   font-size: 28px;
   text-shadow: 1px 1px 0px #444445;
@@ -748,4 +748,10 @@ figure > p {
   color: black;
   text-shadow: none;
   text-align: center;
+}
+
+figure > img {
+  margin-top: 20px;
+  box-shadow: -5px 2px 5px gray;
+  border: 1px solid black;
 }
